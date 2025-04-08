@@ -7,6 +7,8 @@
 
 ---
 
+Savepoint.Protocol is a structured way to mark, return to, and reason through nonlinear thought—solo, with teams, or with AI.
+
 ## What Is This?
 
 Savepoint.Protocol is not a note-taking system.  
