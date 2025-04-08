@@ -1,0 +1,1 @@
+- 2025-04-08: Added `ip_declaration.md` with authorship, scope, and project separation details.
