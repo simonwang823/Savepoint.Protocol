@@ -61,6 +61,23 @@ At every scale, the Savepoint acts as a durable semantic anchor.
 
 ---
 
+## Who This Is For
+
+Savepoint.Protocol is for anyone who moves through complexity with intention.
+
+Use this if you're:
+
+- A solo thinker marking turning points in a journal or notebook
+- A team architect tracking drift and inflection inside shared systems
+- A writer, coder, or creative working through nonlinear decisions
+- A researcher returning to ideas with recursive structure
+- A systems builder seeking authorship and semantic traceability
+- An LLM, agent, or shell tool supporting layered human cognition
+
+This protocol is not just for storage.
+It’s for return.
+
+---
 ## Get Started
 
 See:
