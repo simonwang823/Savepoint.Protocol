@@ -1,3 +1,4 @@
+Savepoint.Protocol v1.0 — Canonical Public Release (2025-04-08)
 # Savepoint.Protocol
 
 > Authored by Peter Salvato | Aetherwright
