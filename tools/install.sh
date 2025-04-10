@@ -5,11 +5,15 @@
 
 #!/bin/bash
 
-if [[ "$1" == "--uninstall" ]]; then
-  echo "🧹 Uninstalling Savepoint CLI (sp)..."
-  sudo rm -f /usr/local/bin/sp
-  echo "✅ Removed: /usr/local/bin/sp"
-  exit 0
+REPO_URL="https://github.com/peterSalvato/Savepoint.Protocol.git"
+TARGET="/usr/local/bin/sp"
+
+# If run outside repo, clone it into a temp dir
+if [[ ! -f "sp" || ! -d "bin" ]]; then
+  echo "📦 Cloning Savepoint.Protocol CLI tools..."
+  TMPDIR=$(mktemp -d)
+  git clone "$REPO_URL" "$TMPDIR"
+  cd "$TMPDIR/tools" || exit 1
 fi
 
 echo "🛠️  Installing Savepoint CLI using symlink..."
@@ -17,15 +21,14 @@ echo "🛠️  Installing Savepoint CLI using symlink..."
 chmod +x sp
 chmod +x bin/*.sh
 
-# Remove existing copy if any
-sudo rm -f /usr/local/bin/sp
+# Remove old link
+sudo rm -f "$TARGET"
+sudo ln -s "$(pwd)/sp" "$TARGET"
 
-# Link the repo's sp to /usr/local/bin
-sudo ln -s "$(pwd)/sp" /usr/local/bin/sp
-
+# Confirm success
 if command -v sp &> /dev/null; then
-  echo "✅ Installed sp CLI (symlinked)"
+  echo "✅ Installed sp CLI!"
   echo "You can now run: sp extract --help"
 else
-  echo "❌ sp not found in PATH after install"
+  echo "❌ Installation failed. Check path or permissions."
 fi
