@@ -6,29 +6,39 @@
 #!/bin/bash
 
 REPO_URL="https://github.com/peterSalvato/Savepoint.Protocol.git"
-TARGET="/usr/local/bin/sp"
+INSTALL_PATH="/usr/local/bin/sp"
 
-# If run outside repo, clone it into a temp dir
+# ──────────────────────────────────────────────
+# Detect if running inside the repo
+# ──────────────────────────────────────────────
 if [[ ! -f "sp" || ! -d "bin" ]]; then
-  echo "📦 Cloning Savepoint.Protocol CLI tools..."
+  echo "📦 Cloning Savepoint.Protocol into temp directory..."
   TMPDIR=$(mktemp -d)
   git clone "$REPO_URL" "$TMPDIR"
   cd "$TMPDIR/tools" || exit 1
+else
+  echo "📁 Installing from local tools/ directory..."
 fi
 
-echo "🛠️  Installing Savepoint CLI using symlink..."
-
+# ──────────────────────────────────────────────
+# Make CLI scripts executable
+# ──────────────────────────────────────────────
 chmod +x sp
 chmod +x bin/*.sh
 
-# Remove old link
-sudo rm -f "$TARGET"
-sudo ln -s "$(pwd)/sp" "$TARGET"
+# ──────────────────────────────────────────────
+# Install symlink
+# ──────────────────────────────────────────────
+echo "🔗 Installing CLI command: sp"
+sudo rm -f "$INSTALL_PATH"
+sudo ln -s "$(pwd)/sp" "$INSTALL_PATH"
 
-# Confirm success
+# ──────────────────────────────────────────────
+# Final Confirmation
+# ──────────────────────────────────────────────
 if command -v sp &> /dev/null; then
-  echo "✅ Installed sp CLI!"
-  echo "You can now run: sp extract --help"
+  echo "✅ Savepoint CLI installed!"
+  echo "Try: sp extract --help"
 else
-  echo "❌ Installation failed. Check path or permissions."
+  echo "❌ CLI install failed. Check permissions or symlink path."
 fi
