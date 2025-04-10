@@ -92,6 +92,21 @@ See:
 Savepoint.Protocol is an authorship scaffold—recursive, minimal, sovereign, and enduring.  
 This is how we mark where it mattered.
 
+
 ## CLI Tools
 
 Savepoint.Protocol includes a tested set of shell tools for working with OpenAI chat exports and recursive cognitive review. See [docs/cli-tools.md](docs/cli-tools.md).
+
+The modular CLI interface is located in:
+
+/tools/
+
+
+You can:
+- Extract structured exports from `conversations.json`
+- Drop and annotate Savepoints (WIP)
+- Grow this into a full timeline and reflection system
+
+For CLI usage and installation, see [tools/README.md](tools/README.md).
+
+---
