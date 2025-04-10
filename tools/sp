@@ -1,11 +1,22 @@
 #!/bin/bash
 # sp - Savepoint Protocol CLI launcher
 
+# Get real path to this script (follows symlink)
+SCRIPT_PATH=$(readlink -f "$0")
+BASE_DIR=$(dirname "$SCRIPT_PATH")
+
+# Detect top-level uninstall
+if [[ "$1" == "--uninstall" ]]; then
+  "$(dirname "$(readlink -f "$0")")/bin/sp_install.sh" --uninstall
+  exit 0
+fi
+
 case $1 in
-  extract) shift; "$(dirname "$0")/bin/sp_extract.sh" "$@" ;;
-  drop)    shift; "$(dirname "$0")/bin/sp_drop.sh" "$@" ;;
-  install) shift; "$(dirname "$0")/bin/sp_install.sh" "$@" ;;
-  uninstall) shift; "$(dirname "$0")/bin/sp_install.sh" --uninstall "$@" ;;
+
+  extract) shift; "$BASE_DIR/bin/sp_extract.sh" "$@" ;;
+  drop)    shift; "$BASE_DIR/bin/sp_drop.sh" "$@" ;;
+  install) shift; "$BASE_DIR/bin/sp_install.sh" "$@" ;;
+  uninstall) shift; "$BASE_DIR/bin/sp_install.sh" --uninstall "$@" ;;
   *)
     echo "Savepoint CLI (sp)"
     echo "Usage:"
@@ -16,3 +27,4 @@ case $1 in
     exit 1
     ;;
 esac
+

@@ -7,15 +7,20 @@ if [[ "$1" == "--uninstall" ]]; then
   exit 0
 fi
 
-echo "🛠️  Installing Savepoint CLI..."
+echo "🛠️  Installing Savepoint CLI using symlink..."
 
 chmod +x sp
 chmod +x bin/*.sh
-sudo cp sp /usr/local/bin/sp
 
-if [[ -f /usr/local/bin/sp ]]; then
-  echo "✅ Installed sp CLI!"
+# Remove existing copy if any
+sudo rm -f /usr/local/bin/sp
+
+# Link the repo's sp to /usr/local/bin
+sudo ln -s "$(pwd)/sp" /usr/local/bin/sp
+
+if command -v sp &> /dev/null; then
+  echo "✅ Installed sp CLI (symlinked)"
   echo "You can now run: sp extract --help"
 else
-  echo "❌ Installation failed. Could not find sp at /usr/local/bin/"
+  echo "❌ sp not found in PATH after install"
 fi
