@@ -1,15 +1,9 @@
+
+#!/bin/bash
 # Savepoint Protocol CLI
 # Author: Peter Salvato
 # License: MIT
 # (c) 2025 Peter Salvato. All rights reserved.
-
-
-#!/bin/bash
-
-# Savepoint Protocol CLI – sp extract
-# Author: Peter Salvato
-# Description: Extract and archive conversations.json based on prefix + label
-# Usage: sp extract --prefix AE --label Review1 --source ./conversations.json
 
 # ──────────────────────────────────────────────
 # Flag parsing
@@ -108,9 +102,9 @@ jq -c '.[]' "$SOURCE" | while IFS= read -r convo; do
 
   for (( j=0; j<COUNT; j++ )); do
     MSG=$(echo "$MESSAGES" | jq ".[$j]")
-    ROLE=$(echo "$MSG" | jq -r ".author.role")
+    ROLE=$(echo "$MSG" | jq -r ".message.author.role // \"unknown\"")
     TEXT=$(echo "$MSG" | jq -r ".message.content.parts[0]" | tr -d '\r' | tr '\n' ' ')
-    TS=$(echo "$MSG" | jq -r ".create_time")
+    TS=$(echo "$MSG" | jq -r ".message.create_time")
     [[ "$TS" == "null" || -z "$TS" ]] && TS="$CREATE"
     ISO=$(date -u -d @"$TS" +"%Y-%m-%dT%H:%M:%SZ")
 
