@@ -8,105 +8,195 @@ Savepoint.Protocol v1.0 — Canonical Public Release (2025-04-08)
 
 ---
 
-Savepoint.Protocol is a structured way to mark, return to, and reason through nonlinear thought—solo, with teams, or with AI.
+README.md — Savepoint Protocol
 
-## What Is This?
+> “The machete, not the map.”
 
-Savepoint.Protocol is not a note-taking system.  
-It is a **semantic cartography framework**—a system for marking, returning to, and reasoning through nonlinear thought.
 
-Whether used solo, in teams, or with AI assistance, Savepoints act as **structured signal-beacons** laid down during moments of conceptual shift, uncertainty, drift, or realization.
 
-They are not written to be remembered.  
-They are written to be **returned to**—with fidelity, recursion, and orientation.
+# Savepoint Protocol
 
----
+**Trace your thinking. Don’t just remember—author.**
 
-## Core Concept: Jungle Cartography
+Savepoint Protocol is a minimal, timestamped markup system for capturing cognitive turning points—language, phrasing, and realizations—as they emerge in real time.
 
-When navigating real thought—creative work, reflection, research—you are moving through dense, unmapped jungle. The structure isn’t clear. The terrain shifts beneath you.
-
-As you move, you drop Savepoints:
-- Semantic flares
-- Timestamped declarations
-- Cognitive landmarks
-
-You don’t write them for polish. You write them **midstream**—to mark what matters.  
-Later, you or your system can **return to those beacons**—to reenter, reflect, or realign.
-
-This is not a tracking tool. It is **cognitive cartography**.
+This is not memory. This is authorship infrastructure.
 
 ---
 
-## Key Properties
+### Semantic Cartography for the Mind
 
-- **Structured**: Every Savepoint uses a precise, machine- and human-readable format
-- **Recursive**: Built for reentry and multi-pass interpretation
-- **Cross-modal**: Works in shell, chat, AI, journal, notebook, group thread, or field notes
-- **Team-ready**: Enables layered authorship, drift detection, and semantic overlays
-- **Protective**: Terminology and structure are IP-guarded and non-replicable
+> Thought doesn’t arrive in order. It arrives like a jungle—dense, recursive, and overgrown.  
+> Savepoint Protocol is the **machete**, not the map.
 
----
+Each `<savepoint>` is a notch in the cognitive treeline:  
+You were *here*. This *mattered*. Come back if needed.
 
-## Solo, Team, System Use
+Savepoint captures:
+- What phrasing clicked
+- When a realization reshaped your path
+- Why a concept felt sharp enough to carve
 
-Savepoint.Protocol supports:
-- Solo creative practice
-- AI-assisted recursive thought
-- Group cognition overlays (each person marking flares in shared terrain)
-- Flat file or database traversal
-- Printed analog toolkits
-
-At every scale, the Savepoint acts as a durable semantic anchor.
+Unlike AI memory, Savepoint traces **meaning**, not just moments.
 
 ---
 
-## Who This Is For
+### What It Is
 
-Savepoint.Protocol is for anyone who moves through complexity with intention.
+A **tool-agnostic, versioned protocol** for anchoring thought in wild terrain.
 
-Use this if you're:
+Savepoints work in:
+- Plaintext
+- Git
+- NotebookLM
+- ChatGPT
+- Your own offline workflows
 
-- A solo thinker marking turning points in a journal or notebook
-- A team architect tracking drift and inflection inside shared systems
-- A writer, coder, or creative working through nonlinear decisions
-- A researcher returning to ideas with recursive structure
-- A systems builder seeking authorship and semantic traceability
-- An LLM, agent, or shell tool supporting layered human cognition
-
-This protocol is not just for storage.
-It’s for return.
-
----
-## Get Started
-
-See:
-
-- [`docs/quickstart.md`](docs/quickstart.md) → Write your first Savepoint
-- [`docs/philosophy.md`](docs/philosophy.md) → Understand the jungle cartography model
-- [`docs/Savepoint-syntax.md`](docs/Savepoint-syntax.md) → v3.0 canonical structure
-- [`docs/examples.md`](docs/examples.md) → Real Savepoints in real scenarios
+Designed for:
+- **Human authorship**
+- **Machine parsing**
+- **Reflective synthesis**
+- **Minimal friction**
 
 ---
 
-Savepoint.Protocol is an authorship scaffold—recursive, minimal, sovereign, and enduring.  
-This is how we mark where it mattered.
+### Why It Exists
 
+> As AI systems adopt passive memory, the risk isn’t forgetting—it’s losing **authorship**.
 
-## CLI Tools
+LLMs can store facts.  
+Only you can decide what mattered.
 
-Savepoint.Protocol includes a tested set of shell tools for working with OpenAI chat exports and recursive cognitive review. See [docs/cli-tools.md](docs/cli-tools.md).
+Savepoint was created to make **your cognitive evolution legible**—to you, and to any system that follows.
 
-The modular CLI interface is located in:
-
-/tools/
-
-
-You can:
-- Extract structured exports from `conversations.json`
-- Drop and annotate Savepoints (WIP)
-- Grow this into a full timeline and reflection system
-
-For CLI usage and installation, see [tools/README.md](tools/README.md).
+It’s a control layer for authored memory in synthetic environments.
 
 ---
+
+### How It Works
+
+Each session is a timestamped `.md` file:
+
+```txt
+<session 2025-04-10-2 | Savepoint.Protocol | opened 16:04>
+
+<savepoint 16:07>
+That metaphor finally locked in: “Savepoints aren’t memories, they’re commits.”
+#language #realization
+
+<savepoint 16:13>
+This changes the purpose of the spec—this isn’t note-taking, this is cartography.
+#framing #specification
+
+</session>
+
+You can also include:
+
+<meta> blocks (tool, mood, tags)
+
+#hashtags (for grep/NotebookLM)
+
+retro: or summary flags for post-hoc capture
+
+
+
+---
+
+Key Features
+
+
+---
+
+Use Cases
+
+Writers marking when phrasing snaps
+
+Designers articulating conceptual pivots
+
+Developers tracing architecture shifts
+
+Philosophers tracking internal reframes
+
+Anyone doing recursive, reflective thinking who wants a record of how it changed
+
+
+
+---
+
+Install the CLI
+
+> Now available: Savepoint CLI Tool
+Split conversations.json (from ChatGPT export) into discrete .savepoint.md sessions.
+
+
+
+git clone https://github.com/peterSalvato/savepoint-protocol.git
+cd savepoint-protocol
+python cli/savepoint_split.py conversations.json
+
+Requires Python 3.7+
+
+Outputs structured, Git-ready Savepoint logs
+
+
+
+---
+
+Repo Structure
+
+/spec/ — Protocol structure + rules
+
+/cli/ — Functional CLI tools
+
+/examples/ — Savepoint samples
+
+/.savepoints/ — Actual reflection logs
+
+/docs/ — Optional integration notes
+
+
+
+---
+
+Philosophy
+
+You don’t need more tools that remember.
+You need a protocol that helps you see your own trail.
+
+Savepoint Protocol is:
+
+Machine-readable
+
+Human-honest
+
+Time-anchored
+
+Thought-indexed
+
+
+It’s not a database—it’s a way to find your way back.
+When the forest regrows, the savepoints remain.
+
+Read the full philosophy →
+
+
+---
+
+License
+
+Licensed under custom humanist license.
+Use it, fork it, remix it—but don’t erase authorship.
+This is about transparency, not surveillance.
+
+
+---
+
+Author
+
+Designed by Peter Salvato
+Part of a broader system of authored infrastructure, semantic tooling, and symbolic design practice.
+
+---
+
+Let me know if you want a short version for the GitHub **profile README**, or a companion `savepoint-spec-v1.md` next to this that formally defines syntax without losing the soul.
+
