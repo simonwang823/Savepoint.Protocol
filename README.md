@@ -8,12 +8,6 @@ Savepoint.Protocol v1.0 — Canonical Public Release (2025-04-08)
 
 ---
 
-README.md — Savepoint Protocol
-
-> “The machete, not the map.”
-
-
-
 # Savepoint Protocol
 
 **Trace your thinking. Don’t just remember—author.**
